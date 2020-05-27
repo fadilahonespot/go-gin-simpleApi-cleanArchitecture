@@ -1,6 +1,11 @@
-# Simple API With Gin and Gorm Framework
-
+# Simple API Clean Architecture With Gin and Gorm Framework
 CRUD simple RESTFUL API with routing in using gin framework and ORM database with Gorm auto migrate. Database using mysql. Check config/config.go for configurate database. just create a database with the name simple_api in MySQL and then run this API program 
+
+## Clean architecture divides our code into 4 layers
+- Model/entity: encapsulate enterprise wide business rules. An entity in Go is a set of data structures and functions.
+- Use Cases: the software in this layer contains application specific business rules. It encapsulates and implements all of the use cases of the system.
+- Repository: the software in this layer is a set of adapters that convert data from the format most convenient for the use cases and entities, to the format most convenient for some external agency such as the Database or the Web
+- Handler/Driver: this layer is generally composed of frameworks and tools such as the Database, the Web Framework, etc.
 
 ## Installation
 
@@ -40,12 +45,11 @@ Input body
 ```
 - PUT Method 
 ```
-localhost:7861/person
+localhost:7861/person/id
 ```
 Input body #input ID will be used to update the data
 ```
 {
-  "id": 4,
   "first_name": "Novan",
   "last_name": "Gunawan"
 }
